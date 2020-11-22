@@ -27,8 +27,9 @@ dewvm:
 	leaq	0(,%rdx,8), %rcx
 	movq	-32(%rbp), %rdx
 	addq	%rcx, %rdx
-	movsd	(%rdx), %xmm1
-	movl	-4(%rbp), %edx
+
+	movupd	(%rdx), %xmm1
+	movl 	-4(%rbp), %edx 
 	movslq	%edx, %rdx
 	leaq	0(,%rdx,8), %rcx
 	movq	-40(%rbp), %rdx
@@ -36,7 +37,7 @@ dewvm:
 	movsd	(%rdx), %xmm0
 	mulsd	%xmm1, %xmm0
 	movsd	%xmm0, (%rax)
-	addl	$1, -4(%rbp)
+	addl	$2, -4(%rbp)
 .L2:
 	movl	-4(%rbp), %eax
 	cmpl	-20(%rbp), %eax
